@@ -1,0 +1,40 @@
+// DROPDOWN INTERACTIVITY
+const dropdown = document.getElementById("skillDropdown");
+const result = document.getElementById("dropdownResult");
+
+dropdown.addEventListener("change", function () {
+    result.textContent = "You selected: " + dropdown.value;
+});
+
+// MODAL INTERACTIVITY
+const modal = document.getElementById("modal");
+const openBtn = document.getElementById("openModal");
+const closeBtn = document.getElementById("closeModal");
+
+openBtn.addEventListener("click", function () {
+    modal.style.display = "block";
+});
+
+closeBtn.addEventListener("click", function () {
+    modal.style.display = "none";
+});
+
+// FORM VALIDATION
+const form = document.getElementById("contactForm");
+const message = document.getElementById("formMessage");
+
+form.addEventListener("submit", function (event) {
+    event.preventDefault(); // stop page refresh
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+
+    if (name === "" || email === "") {
+        message.textContent = "All fields are required!";
+        message.style.color = "red";
+    } else {
+        message.textContent = "Form submitted successfully!";
+        message.style.color = "lightgreen";
+        form.reset();
+    }
+});
